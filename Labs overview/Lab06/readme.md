@@ -26,4 +26,3 @@ Platforma z przeszkodami.
 
 ![Summary](summary.png)
 
-Kamera została podpięta do cylindra, a rozglądanie zostało ograniczone do 90 stopni (góra-dół).
