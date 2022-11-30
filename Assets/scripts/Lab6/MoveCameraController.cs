@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Zad3and4 : MonoBehaviour
+public class MoveCameraController : MonoBehaviour
 {
     // ruch wokó³ osi Y bêdzie wykonywany na obiekcie gracza, wiêc
     // potrzebna nam referencja do niego (konkretnie jego komponentu Transform)
@@ -25,25 +25,9 @@ public class Zad3and4 : MonoBehaviour
 
         // wykonujemy rotacjê wokó³ osi Y
         player.Rotate(Vector3.up * mouseXMove);
+        transform.Rotate(new Vector3(-mouseYMove, 0f, 0f), Space.Self);
 
         // a dla osi X obracamy kamerê dla lokalnych koordynatów
         // -mouseYMove aby unikn¹æ ofektu mouse inverse
-
-        //zablokowanie obrotu góra-dó³ powy¿ej 90 stopni
-        if (mouseYTotalMoved > -90f && mouseYTotalMoved < 90f)
-        {
-            transform.Rotate(new Vector3(-mouseYMove, 0f, 0f), Space.Self);
-            mouseYTotalMoved += -mouseYMove;
-        }
-        if (mouseYTotalMoved > 90f && mouseYMove>0f)
-        {
-            transform.Rotate(new Vector3(0f, 0f, 0f), Space.Self);
-            mouseYTotalMoved += -mouseYMove;
-        }
-        if (mouseYTotalMoved < -90f && mouseYMove < 0f)
-        {
-            transform.Rotate(new Vector3(0f, 0f, 0f), Space.Self);
-            mouseYTotalMoved += -mouseYMove;
-        }
     }
 }
